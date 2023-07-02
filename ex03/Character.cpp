@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 21:09:45 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/03 00:05:12 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/03 00:21:34 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,9 @@ void Character::unequip(int idx){
 
 void Character::use(int idx, ICharacter& target){
 	if (this->stuff[idx]){
-	this->stuff[idx]->use(target);
-	this->stuff[idx] = NULL;
+		this->stuff[idx]->use(target);
+		delete this->stuff[idx];
+		githis->stuff[idx] = NULL;
 	}
 }
 

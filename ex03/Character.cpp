@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 21:09:45 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/02 23:57:19 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/03 00:05:12 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ std::string const &Character::getName() const{
 
 void Character::equip(AMateria* m){
 	for(int i = 0; i < 4; i++){
-		if (this->stuff[i] != NULL){
+		if (this->stuff[i] == NULL){
 			this->stuff[i] = m;
 			break ;
 		}

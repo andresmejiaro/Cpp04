@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:40:57 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/02 22:11:45 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/03 23:48:57 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ public:
 	virtual ~Dog();
 	Dog(const Dog &other);
 	Dog &operator=(const Dog &other);
-	void makeSound() const;
-
+	virtual void makeSound() const;
 };
 
 #endif

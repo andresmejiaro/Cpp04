@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 23:33:59 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/02 22:11:38 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/03 23:48:55 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ public:
 	virtual ~Cat();
 	Cat(const Cat &other);
 	Cat &operator=(const Cat &other);
-	void makeSound() const;
-
+	virtual void makeSound() const;
 };
 
 #endif

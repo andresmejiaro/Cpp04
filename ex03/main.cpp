@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 19:05:18 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/03 19:49:01 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/04 00:11:25 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ int main()
 	
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
+	bob->equip(tmp);
 	me->use(0, *bob);
 	me->use(1, *bob);
 	me->use(2, *bob);
 	me->use(5, *bob);
+	me->use(-5, *bob);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	me->unequip(0);

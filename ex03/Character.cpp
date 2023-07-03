@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 21:09:45 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/03 19:47:43 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/04 00:23:24 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,9 @@ void Character::equip(AMateria* m){
 	int i;
 	
 	for(i = 0; i < 4; i++){
-		if (this->stuff[i] == NULL){
+		if (this->stuff[i] == NULL && m->getUsedState() == false){
 			this->stuff[i] = m;
+			m->ChangeUsed();
 			std::cout << this->_name << " equiped " << m->getType() << " in slot "
 				<< i << std::endl;
 			break ;
@@ -84,9 +85,10 @@ void Character::equip(AMateria* m){
 }	
 
 void Character::unequip(int idx){
-	if (idx < 4 && this->stuff[idx]){
+	if (idx < 4 && idx >= 0 && this->stuff[idx]){
 		std::cout << "Unequiping " << this->stuff[idx]->getType() 
 			<< " from slot " << idx << std::endl;
+		this->stuff[idx]->ChangeUsed();
 		this->stuff[idx] = NULL;
 	}
 	else
@@ -95,7 +97,7 @@ void Character::unequip(int idx){
 }
 
 void Character::use(int idx, ICharacter& target){
-	if (idx < 4 && this->stuff[idx]){
+	if (idx < 4 && idx >= 0 && this->stuff[idx]){
 		this->stuff[idx]->use(target);
 		delete this->stuff[idx];
 		this->stuff[idx] = NULL;
@@ -103,4 +105,3 @@ void Character::use(int idx, ICharacter& target){
 	else 
 		std::cout << "Slot " << idx << " is empty" << std::endl;
 }
-

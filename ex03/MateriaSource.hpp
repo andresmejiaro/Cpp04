@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 19:01:04 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/02 22:34:51 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/04 00:08:55 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ class MateriaSource: public IMateriaSource
 {
 private:
 	AMateria *stuff[4];	
+	AMateria* pointStuff(int w) const;
 public:
 	MateriaSource();
 	virtual ~MateriaSource();
@@ -25,6 +26,5 @@ public:
 	MateriaSource &operator=(const MateriaSource &other);
 	void learnMateria(AMateria*);
 	AMateria* createMateria(std::string const & type);
-	AMateria* pointStuff(int w) const;
 };
 #endif

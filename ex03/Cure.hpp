@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 18:51:16 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/02 23:52:47 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/03 23:47:04 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Cure: public AMateria
 {
 public:
-	Cure(std::string const & type);
 	Cure();
 	virtual ~Cure();
 	Cure(const Cure &other);

@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 22:29:35 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/03 19:50:48 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/04 00:10:15 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ MateriaSource::MateriaSource(){
 }
 
 MateriaSource::~MateriaSource(){
-		for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (stuff[i] != NULL)
 			delete stuff[i];
@@ -38,7 +38,7 @@ MateriaSource::MateriaSource(const MateriaSource &other){
 }
 
 AMateria *MateriaSource::pointStuff(int w) const{
-	if (w < 4){
+	if (w < 4 && w >= 0){
 		return (this->stuff[w]);
 	}
 	return (NULL);
@@ -60,15 +60,14 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other){
 void MateriaSource::learnMateria(AMateria* src){
 	int i;
 	for(i = 0; i < 4; i++){
-		if (this->stuff[i] == NULL){
+		if (this->stuff[i] == NULL && src->getUsedState() == false){
 			this->stuff[i] = src;
 			std::cout << "Materia Source learnt " << src->getType() << std::endl;
 			break ;
 		}
 	}
 	if (i >= 4)
-		std::cout << "Learn failed"  << std::endl;
-		
+		std::cout << "Learn failed"  << std::endl;	
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type){
@@ -78,7 +77,7 @@ AMateria* MateriaSource::createMateria(std::string const & type){
 			return (this->stuff[i]->clone());
 		}
 	}
-	if (i>=4)
+	if (i >= 4)
 		std::cout << "Cannot create " << type << std::endl;
 	return (NULL);
 }

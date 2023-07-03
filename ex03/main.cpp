@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 19:05:18 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/03 00:17:51 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/03 19:49:01 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,31 @@ void leaks(){
 
 int main()
 {
-	//atexit(leaks);	
+	atexit(leaks);	
 	IMateriaSource* src = new MateriaSource();
-	AMateria * hielo = new Ice();
-	src->learnMateria(hielo);
-	AMateria * cura = new Cure();
-	src->learnMateria(cura);
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
+	
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
-	delete hielo;
-	delete cura;
+	me->use(2, *bob);
+	me->use(5, *bob);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	me->unequip(0);
+	me->unequip(0);
+	me->unequip(5);
+	delete tmp;
+	tmp = src->createMateria("patata");
+	
+	
 	delete bob;
 	delete me;
 	delete src;

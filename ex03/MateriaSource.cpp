@@ -6,13 +6,14 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 22:29:35 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/02 23:56:17 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/03 19:50:48 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(){
+	std::cout << "A Materia Source was created " << std::endl;
 	for (int i = 0; i < 4; i++)
 		stuff[i] = NULL;	
 }
@@ -23,6 +24,7 @@ MateriaSource::~MateriaSource(){
 		if (stuff[i] != NULL)
 			delete stuff[i];
 	}
+	std::cout << "A Materia Source was destroyed " << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other){
@@ -43,7 +45,9 @@ AMateria *MateriaSource::pointStuff(int w) const{
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &other){
-	for(int i = 0; i < 4; i++){
+	int i;
+	
+	for(i = 0; i < 4; i++){
 		if (other.pointStuff(i) != NULL){
 			this->stuff[i] = other.pointStuff(i)->clone();
 		}
@@ -54,19 +58,27 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other){
 }
 
 void MateriaSource::learnMateria(AMateria* src){
-	for(int i = 0; i < 4; i++){
+	int i;
+	for(i = 0; i < 4; i++){
 		if (this->stuff[i] == NULL){
-			this->stuff[i] = src->clone();
+			this->stuff[i] = src;
+			std::cout << "Materia Source learnt " << src->getType() << std::endl;
 			break ;
 		}
-	}	
+	}
+	if (i >= 4)
+		std::cout << "Learn failed"  << std::endl;
+		
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type){
-	for(int i = 0; i < 4; i++){
+	int i;
+	for(i = 0; i < 4; i++){
 		if (this->stuff[i] && this->stuff[i]->getType() == type){
 			return (this->stuff[i]->clone());
 		}
 	}
+	if (i>=4)
+		std::cout << "Cannot create " << type << std::endl;
 	return (NULL);
 }

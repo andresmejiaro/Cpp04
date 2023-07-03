@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 20:40:29 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/02 23:49:43 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/03 19:40:36 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Ice::Ice(): AMateria("ice"){
 }
 
 Ice::~Ice(){
+	std::cout << "Ice Destroyed" << std::endl;
 }
 
 Ice::Ice(const Ice &other): AMateria(other){
@@ -34,5 +35,5 @@ Ice* Ice::clone() const{
 
 void Ice::use(ICharacter& target){
 	std::cout << "* shoot an ice bolt to " << target.getName() 
-		<< "*" << std::endl;
+		<< " *" << std::endl;
 }

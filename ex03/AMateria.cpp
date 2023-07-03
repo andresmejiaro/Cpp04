@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 19:20:55 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/02 23:52:04 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/03 18:11:52 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 AMateria::AMateria(std::string const &type){
 	this->type = type;
+	std::cout << "A Materia of type " << type << " was created." << std::endl;
 }
 
 AMateria::AMateria(){

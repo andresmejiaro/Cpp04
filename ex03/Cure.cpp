@@ -5,6 +5,7 @@ Cure::Cure(): AMateria("cure"){
 }
 
 Cure::~Cure(){
+	std::cout << "Cure Destroyed" << std::endl;
 }
 
 Cure::Cure(const Cure &other): AMateria(other){
